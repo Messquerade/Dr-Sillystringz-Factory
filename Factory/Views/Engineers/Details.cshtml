@@ -23,6 +23,18 @@ else
     </ul>
 }
 
+<h3>Add a machine that this engineer can repair</h3>
+
+@using (Html.BeginForm("AddMachine", "Engineers"))
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  @Html.Label("Select Machine")
+  @Html.DropDownList("MachineId")
+
+  <input type="submit" value="Add Machine"/>
+}
+
 
 
 <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId})</p>

@@ -36,7 +36,8 @@ namespace Factory.Controllers
 
     public ActionResult Details(int id)
     {
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Type");
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      ViewBag.Engineers = _db.Engineers.ToList();
       var thisMachine = _db.Machines
         .Include(machine => machine.JoinEntities)
         .ThenInclude(join => join.Engineer)
@@ -76,7 +77,7 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult AddEngineer(Machine machine, int EngineerId)
     {
-      if (EngineerId != 0)
+      if (EngineerId != 0 && !_db.EngineerMachine.Any(model => model.MachineId == machine.MachineId && model.EngineerId == EngineerId))
       {
         _db.EngineerMachine.Add(new EngineerMachine() {MachineId = machine.MachineId, EngineerId = EngineerId});
       }

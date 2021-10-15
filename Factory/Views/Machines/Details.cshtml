@@ -23,6 +23,23 @@ else
     </ul>
 }
 
+<h3>Add an engineer that can repair this machine</h3>
+@if(ViewBag.Engineers.Count == 0)
+{
+  <p>There are no engineers at the factory currently.</p>
+}
+else
+{
+  @using (Html.BeginForm("AddEngineer", "Machines"))
+  {
+    @Html.HiddenFor(model => model.MachineId)
+
+    @Html.Label("Select Engineer")
+    @Html.DropDownList("EngineerId")
+
+    <input type="submit" value="Add Engineer"/>
+  }
+}
 
 
 <p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId})</p>

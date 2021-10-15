@@ -76,7 +76,7 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult AddMachine(Engineer engineer, int MachineId)
     {
-      if (MachineId != 0)
+      if (MachineId != 0 && !_db.EngineerMachine.Any(model => model.EngineerId == engineer.EngineerId && model.MachineId == MachineId))
       {
         _db.EngineerMachine.Add(new EngineerMachine() {EngineerId = engineer.EngineerId, MachineId = MachineId});
       }
