@@ -1,0 +1,15 @@
+h1, h2{
+  font-family: Bangers;
+  color: rgb(110, 4, 63);
+}
+
+#Header{
+  position: relative;
+  width: 100%;
+  padding: 100px;
+  background: url("../img/mandalas.jpg") no-repeat center;
+  background-size: cover;
+}
+body{
+  background-color: rgb(196, 248, 255);
+}
