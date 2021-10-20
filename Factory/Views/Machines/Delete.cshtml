@@ -1,0 +1,13 @@
+@{
+  Layout= "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h3>Would you like to delete @Model.Type?</h3>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Confirm"/>
+}
+
