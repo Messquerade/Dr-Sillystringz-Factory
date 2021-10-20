@@ -6,8 +6,10 @@
 
 @using(Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Type)
-  @Html.TextBoxFor(model => model.Type)
+  <div class="form-group">
+    @Html.LabelFor(model => model.Type)
+    @Html.TextBoxFor(model => model.Type, new {@class = "form-control", @required = "required"})
+  </div>
 
   <input type="submit" value="Add Machine"/>
 }
